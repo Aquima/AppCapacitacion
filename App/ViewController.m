@@ -23,14 +23,63 @@
     NSString *lastaname;
     NSArray*numeros;
     NSMutableArray*numerosIlimitado;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  //  [self exampleOne];
-  //  [self exampleTwo];
-    [self exampleThree];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSString*numbers = @"123+231-100+500+9-3";//para operacion
+//    NSRange range = [numbers rangeOfString:@"231"];
+//    NSLog(@"%lu %lu",(unsigned long)range.location,(unsigned long)range.length);
+    NSArray*lista = [self convertToArray:numbers];
+    int counterOperator = 0;
+    NSMutableArray*numbersInt = [[NSMutableArray alloc] init];
+    NSMutableString*cadenaNumber = [[NSMutableString alloc] init];
+    NSMutableArray*operators = [[NSMutableArray alloc] init];
+    for (int i =0; i < [lista count]; i++) {
+        if (![lista[i] isEqualToString:@"+"] && ![lista[i] isEqualToString:@"-"]) {
+            //soy un numero
+            [cadenaNumber appendString: lista[i]];
+            numbersInt[counterOperator] = cadenaNumber;
+            NSLog(@"Numero: %@",cadenaNumber);
+        }else{
+            counterOperator = counterOperator + 1;
+            cadenaNumber = [[NSMutableString alloc] init];
+            [operators addObject: lista[i]];
+            //una operador
+            NSLog(@"Operador: %@",lista[i]);
+        }
+    }
+    int result = [self operations:operators withValues:numbersInt];
+    NSLog(@"Mi Resultado: %d",result);
+}
+-(int)operations:(NSArray*)oparations withValues:(NSArray*)values{
+    int counterOperating = 1;
+    int resultOperating = [[values firstObject] intValue];
+    for (NSString*strOperator in oparations) {
+        if ([strOperator isEqualToString:@"+"]) {
+            resultOperating = resultOperating + [values[counterOperating] intValue];
+            counterOperating=counterOperating+1;
+        }
+        if ([strOperator isEqualToString:@"-"]) {
+            resultOperating = resultOperating - [values[counterOperating] intValue];
+            counterOperating=counterOperating+1;
+        }
+        
+    }
+    return resultOperating;
+    
+}
+
+-(NSArray *)convertToArray:(NSString*)cadena
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for (int i=0; i < cadena.length; i++) {
+        NSString *tmp_str = [cadena substringWithRange:NSMakeRange(i, 1)];
+        [arr addObject:[tmp_str stringByRemovingPercentEncoding]];
+        NSLog(@"%@",tmp_str);
+    }
+    return arr;
 }
 /*
  Trabajar con arreglos
