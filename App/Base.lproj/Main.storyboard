@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rrc-ie-aCm">
-                                <rect key="frame" x="78" y="245" width="220" height="197"/>
+                                <rect key="frame" x="223.5" y="89" width="220" height="197"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="eBe-EP-exS">
                                         <rect key="frame" x="70" y="0.0" width="80" height="62"/>
@@ -66,18 +66,37 @@
                                     <constraint firstAttribute="trailing" secondItem="gXq-IS-nvi" secondAttribute="trailing" constant="5" id="g2j-9Z-Otw"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rO5-x8-Npc">
+                                <rect key="frame" x="80" y="50" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Mp2-7D-oKj"/>
+                                    <constraint firstAttribute="width" constant="150" id="lmh-6F-r7K"/>
+                                </constraints>
+                                <state key="normal" title="Atras"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdF-ho-gUc">
+                                <rect key="frame" x="84" y="140" width="56" height="30"/>
+                                <state key="normal" title="sercond"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="rO5-x8-Npc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="0Yr-0E-tdo"/>
                             <constraint firstItem="Rrc-ie-aCm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Cg-C3-3HY"/>
                             <constraint firstItem="Rrc-ie-aCm" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Jax-NS-G3G"/>
+                            <constraint firstItem="vdF-ho-gUc" firstAttribute="leading" secondItem="rO5-x8-Npc" secondAttribute="leading" constant="4" id="W75-jJ-dFX"/>
+                            <constraint firstItem="vdF-ho-gUc" firstAttribute="top" secondItem="rO5-x8-Npc" secondAttribute="bottom" constant="50" id="qHk-II-c5O"/>
+                            <constraint firstItem="rO5-x8-Npc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="qyp-gv-Bkw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contstrintVertical" destination="0Yr-0E-tdo" id="smv-DQ-7b0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10.4" y="133.5832083958021"/>
+            <point key="canvasLocation" x="246" y="118"/>
         </scene>
     </scenes>
     <resources>

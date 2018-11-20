@@ -12,6 +12,7 @@
 //variables expuestas a otras clases
 @property(nonatomic,strong) NSString*username;//@"value"
 @property(nonatomic,strong) NSNumber*age;//@value
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contstrintVertical;
 
 
 @end
@@ -28,6 +29,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIButton*btnLogin = [[UIButton alloc] init];
+    [btnLogin setTitle:@"Login" forState:UIControlStateNormal];
+    [btnLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnLogin setBackgroundColor:[UIColor blueColor]];
+    [btnLogin setFrame:CGRectMake((self.view.frame.size.width - 80)/2, 0, 80, 40)];
+    
+    [self.view addSubview:btnLogin];
+    
+    self.contstrintVertical.constant = -90;
     NSString*numbers = @"123+231-100+500+9-3";//para operacion
 //    NSRange range = [numbers rangeOfString:@"231"];
 //    NSLog(@"%lu %lu",(unsigned long)range.location,(unsigned long)range.length);
